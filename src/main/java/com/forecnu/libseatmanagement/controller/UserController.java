@@ -4,10 +4,7 @@ import com.forecnu.libseatmanagement.entity.Seat;
 import com.forecnu.libseatmanagement.entity.User;
 import com.forecnu.libseatmanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author wuwc
@@ -28,6 +25,17 @@ public class UserController {
         Seat seat = new Seat(2);
         Boolean result = userService.takeSeat(user,seat);
         if(result){
+            System.out.println("占座成功");
+            return "success!";
+        }else{
+            System.out.println("占座失败");
+            return "failed!";
+        }
+    }
+
+    @PostMapping("/seated")
+    public String takeSeated(User user,Seat seat){
+        if(userService.takeSeat(user,seat)){
             System.out.println("占座成功");
             return "success!";
         }else{
