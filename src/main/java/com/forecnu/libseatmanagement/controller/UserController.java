@@ -17,11 +17,10 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    private static int user_id=1;
 
-    @GetMapping("/take")
-    public String fun(){
-        User user = new User(user_id);
+    @RequestMapping("/take")
+    public String takeSeat(){
+        User user = new User(1);
         Seat seat = new Seat(2);
         Boolean result = userService.takeSeat(user,seat);
         if(result){
@@ -33,14 +32,6 @@ public class UserController {
         }
     }
 
-    @PostMapping("/seated")
-    public String takeSeated(User user,Seat seat){
-        if(userService.takeSeat(user,seat)){
-            System.out.println("占座成功");
-            return "success!";
-        }else{
-            System.out.println("占座失败");
-            return "failed!";
-        }
-    }
+
+
 }

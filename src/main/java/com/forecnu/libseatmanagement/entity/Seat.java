@@ -29,5 +29,5 @@ public class Seat {
     private Boolean available;
     private Integer user_id;
     private Integer disk_id;
-    private Boolean check;
+    private Boolean ck;
 }

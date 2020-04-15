@@ -18,4 +18,18 @@ public interface UserService extends IService<User> {
      * @return
      */
     Boolean takeSeat(User user, Seat seat);
+
+    /**
+     * 学生确认使用接口
+     * @param user 学生信息
+     * @param seat 座位信息
+     */
+    /**
+     * 学生确认使用接口
+     * @param user 学生信息
+     * @param seat 座位信息
+     * @return 返回信息
+     */
+    String checkFor(User user, Seat seat);
+
 }
